@@ -1,0 +1,10 @@
+---
+- name: Install apache spark
+  hosts: app
+  remote_user: vagrant
+  become: yes
+  roles: 
+    - tools
+    - java
+    - spark
+...

@@ -1,0 +1,8 @@
+---
+- name: Install apache spark
+  hosts: master
+  remote_user: vagrant
+  become: yes
+  roles: 
+    - run
+...

@@ -1,0 +1,8 @@
+---
+- name: pre deploy
+  hosts: masters
+  remote_user: vagrant
+  become: yes
+  roles: 
+    - pre_deploy
+...

@@ -1,0 +1,13 @@
+---
+
+- name: install epel-release (CentOS)
+  yum:
+    name: epel-release
+    state: present
+    update_cache: yes
+
+- name: install htop
+  package:
+    name: htop
+    state: present
+    update_cache: yes

@@ -1,0 +1,3 @@
+com.mj.sbt.build.LibraryCreationPlugin
+com.mj.sbt.build.ProjectInitializer
+com.mj.sbt.build.ServiceCreationPlugin

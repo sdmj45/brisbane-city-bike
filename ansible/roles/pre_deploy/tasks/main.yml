@@ -1,0 +1,59 @@
+---
+
+# Preparing spark conf file
+- name: Create jar directory
+  file:
+    name: "{{ spark_conf_dir }}"
+    owner: spark
+    group: spark
+    state: directory
+
+- name: copying spark conf file with owner and permissions
+  copy:
+    src: ../../../../run/spark.conf.properties
+    dest: "{{ spark_conf_dir }}"
+    owner: spark
+    group: spark
+    mode: 0644
+
+# Preparing jar file
+- name: Create jar directory
+  file:
+    name: "{{ spark_jar_dir }}"
+    owner: spark
+    group: spark
+    state: directory
+
+- name: copying training-node jar file with owner and permissions
+  copy:
+    src: ../../../../src/training-node/training-node/target/scala-2.11/training-node-assembly-0.1-SNAPSHOT.jar
+    dest: "{{ spark_jar_dir }}"
+    owner: spark
+    group: spark
+    mode: 0644
+
+- name: copying scoring-node jar file with owner and permissions
+  copy:
+    src: ../../../../src/scoring-node/scoring-node/target/scala-2.11/scoring-node-assembly-0.1-SNAPSHOT.jar
+    dest: "{{ spark_jar_dir }}"
+    owner: spark
+    group: spark
+    mode: 0644
+
+# Preparing data input
+- name: Create data directory
+  file:
+    name: "{{ data_in_dir }}"
+    owner: spark
+    group: spark
+    state: directory
+
+- name: copying input file with owner and permissions
+  copy:
+    src: ../../../data/in/
+    dest: "{{ data_in_dir }}"
+    owner: spark
+    group: spark
+    mode: 0644
+
+

@@ -1,0 +1,10 @@
+---
+# Running training-node
+- name: run training-node
+  command: /opt/spark/spark-2.4.0-bin-hadoop2.7/bin/spark-submit --class com.mj.training.TrainingNodeApp  --properties-file={{spark_conf_dir}}spark.conf.properties {{spark_jar_dir}}training-node-assembly-0.1-SNAPSHOT.jar
+  become: yes
+
+# Running scoring-node
+- name: run scoring-node
+  command: /opt/spark/spark-2.4.0-bin-hadoop2.7/bin/spark-submit --class com.mj.scoring.ScoringNodeApp --properties-file={{spark_conf_dir}}spark.conf.properties {{spark_jar_dir}}scoring-node-assembly-0.1-SNAPSHOT.jar
+  become: yes

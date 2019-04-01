@@ -1,0 +1,7 @@
+spark.ui.port	4040
+spark.driver.port	9929
+spark.executor.port	9939
+spark.submit.deployMode	client
+spark.driver.host	{{ groups['masters'][0] }}
+spark.eventLog.enabled true
+spark.executor.instances {{ groups['slaves'] | length }}

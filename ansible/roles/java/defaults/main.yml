@@ -1,0 +1,5 @@
+---
+java_download_url: https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+java_archive_name: jdk-8u201-linux-x64.tar.gz
+java_root_dir: /usr/share/java-1.8.0
+java_jdk_dir: "{{ java_root_dir }}/jdk1.8.0_201"

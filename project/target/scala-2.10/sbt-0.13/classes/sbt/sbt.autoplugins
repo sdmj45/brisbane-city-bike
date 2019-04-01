@@ -1,0 +1,3 @@
+com.mj.build.plugin.ServiceCreationPlugin
+src.main.scala.com.mj.build.plugin.LibraryCreationPlugin
+src.main.scala.com.mj.build.plugin.ProjectInitializer

@@ -1,0 +1,21 @@
+---
+# copy model data to local
+- shell: (cd {{ data_model_dir }}data; find . -maxdepth 1 -type f) | cut -d'/' -f2
+  register: data_model_data_copy
+
+- fetch: src={{ data_model_dir }}data/{{item}} dest=../data/model/data/ flat=yes
+  with_items: "{{ data_model_data_copy.stdout_lines }}"
+
+# copy model metadata to local
+- shell: (cd {{ data_model_dir }}metadata; find . -maxdepth 1 -type f) | cut -d'/' -f2
+  register: data_model_metadata_copy
+
+- fetch: src={{ data_model_dir }}metadata/{{item}} dest=../data/model/metadata/ flat=yes
+  with_items: "{{ data_model_metadata_copy.stdout_lines }}"
+
+# copy output to local
+- shell: (cd {{ data_out_dir }}; find . -maxdepth 1 -type f) | cut -d'/' -f2
+  register: data_output_copy
+
+- fetch: src={{ data_out_dir }}{{item}} dest=../data/output/ flat=yes
+  with_items: "{{ data_output_copy.stdout_lines }}"
